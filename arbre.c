@@ -90,12 +90,12 @@ void largeur(arbre a, void action(arbre a)){
   arbre tmp;
   assert(!est_arbre_vide(a));
   creer_file_vide(&f);
-  enfiler(a,&f);
+  enfiler((data)a,&f);
   while(!est_file_vide(f)){
-    tmp=defiler(&f);
+    tmp=(arbre)defiler(&f);
     action(tmp);
-    if(!est_arbre_vide(fils_gauche(tmp))) enfiler(fils_gauche(tmp),&f);
-    if(!est_arbre_vide(fils_droit(tmp))) enfiler(fils_droit(tmp),&f);
+    if(!est_arbre_vide(fils_gauche(tmp))) enfiler((data)fils_gauche(tmp),&f);
+    if(!est_arbre_vide(fils_droit(tmp))) enfiler((data)fils_droit(tmp),&f);
   }
 }
 
